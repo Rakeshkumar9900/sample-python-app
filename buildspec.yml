@@ -15,7 +15,7 @@ phases:
       - echo "Clearing pip cache..."
       - pip cache purge
       - echo "Installing dependencies..."
-      - pip install -r sample-python-app/requirements.txt --verbose
+      - pip install -r requirements.txt --verbose
 
   pre_build:
     commands:
