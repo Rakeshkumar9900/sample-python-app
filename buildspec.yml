@@ -10,11 +10,17 @@ phases:
   install:
     runtime-versions:
       python: 3.11
+    commands:
+      - yum install -y gcc python3-devel
+      - echo "Installing dependencies..."
+      - pip cache purge
+      - pip install -r sample-python-app/requirements.txt --verbose
 
   pre_build:
     commands:
-      - echo "Installing dependencies..."
-      - pip install -r sample-python-app/requirements.txt
+      - echo "Checking requirements file..."
+      - ls -l sample-python-app/requirements.txt
+      - ping -c 4 pypi.org
 
   build:
     commands:
