@@ -11,17 +11,13 @@ phases:
     runtime-versions:
       python: 3.11
     commands:
-      - yum install -y gcc python3-devel
-      - echo "Clearing pip cache..."
-      - pip cache purge
       - echo "Installing dependencies..."
       - pip install -r requirements.txt --verbose
 
   pre_build:
     commands:
-      - echo "Checking requirements file..."
-      - ls -l sample-python-app/
-      - ping -c 4 pypi.org
+      - echo "Checking directory structure..."
+      - ls -l
 
   build:
     commands:
@@ -37,4 +33,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: ../sample-python-app
+  base-directory: .
